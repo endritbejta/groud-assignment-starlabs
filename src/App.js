@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Layout from "./layout/Layout";
+import Missions from "./pages/Missions";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
       {
         // endriti
         path: "missions",
-        element: <h1>missions</h1>,
+        element: <Missions />,
       },
       {
         // Zejdi

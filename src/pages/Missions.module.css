@@ -1,0 +1,15 @@
+.listHolder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+.listItem {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 10px;
+}

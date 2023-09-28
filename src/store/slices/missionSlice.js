@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-const URL = "";
+const URL = "https://api.spacexdata.com/v3/missions";
 
 const initialState = {
   missions: [],
@@ -22,7 +22,21 @@ export const fetchMissions = createAsyncThunk(
 const missionSlice = createSlice({
   name: "mission",
   initialState,
-  reducers: {},
+  reducers: {
+    joinMission: (state, action) => {
+      // finding the index of the clicked mission
+      const index = state.missions.findIndex(
+        (mission) => mission.mission_id === action.payload
+      );
+      // if found then proceed
+      if (index !== -1) {
+        // update the mission_reserved property, (we can don this type of mutating state, because in this version of redux, redux uses immer.js who helps us make the state change immutably even though we directy manipulate it )
+        state.missions[index].mission_reserved = true;
+      } else {
+        return;
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMissions.pending, (state, action) => {
@@ -41,7 +55,9 @@ const missionSlice = createSlice({
 });
 
 export const selectAllMissions = (state) => state.missions.missions;
-export const selectStats = (state) => state.missions.status;
-export const selectError = (state) => state.missions.error;
+export const selectMissionsLoading = (state) => state.missions.status;
+export const selectMissionsError = (state) => state.missions.error;
+
+export const { joinMission } = missionSlice.actions;
 
 export default missionSlice.reducer;
