@@ -30,29 +30,25 @@ const ActionsButton = ({ data, type }) => {
   }
   const dispatch = useDispatch();
   const clickHandler = () => {
-    if (data.mission_reserved) {
-      dispatch(leaveMission(data.mission_id));
-    } else dispatch(joinMission(data.mission_id));
-  };
-  const clickHandlerRockets = () => {
-    if (data.rocket_reserved) {
-      dispatch(cancelReservation(data.id));
-    } else dispatch(reserveRocket(data.id));
+    if (type === "mission") {
+      if (data.mission_reserved) {
+        dispatch(leaveMission(data.mission_id));
+      } else dispatch(joinMission(data.mission_id));
+    }
+    if (type === "rocket") {
+      if (data.rocket_reserved) {
+        dispatch(cancelReservation(data.id));
+      } else dispatch(reserveRocket(data.id));
+    }
+    if (type === "dragons") {
+      // code here
+    }
   };
 
   return (
-    <div>
-      <button type="button" className={classes.button} onClick={clickHandler}>
-        {content}
-      </button>
-      <button
-        type="button"
-        className={classes.button}
-        onClick={clickHandlerRockets}
-      >
-        {content}
-      </button>
-    </div>
+    <button type="button" className={classes.button} onClick={clickHandler}>
+      {content}
+    </button>
   );
 };
 
