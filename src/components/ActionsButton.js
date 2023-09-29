@@ -21,6 +21,8 @@ const ActionsButton = ({ data, type }) => {
     content = data.mission_reserved === true ? "Leave Mission" : "Join Mission";
   } else if (type === "dragon") {
     // content logic here
+    content =
+      data.dragon_reserved === true ? "Cancel Reservation" : "Reserve dragon";
   } else if (type === "rocket") {
     // content logic here
   }
