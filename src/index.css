@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,700&family=Lumanosimo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,53 @@
 }
 
 :root {
-  --color-primary: rgb(0, 0, 0);
-  --color-secondary: rgb(0, 0, 0);
-  --color-primary: rgb(0, 0, 0);
+  --color-primary: #e6f5f8;
+  --color-primary-100: #caf0f8;
+  --color-primary-200: #90e0ef;
+  --color-primary-300: #00b4d8;
+  --color-primary-400: #0077b6;
+  --color-primary-450: #0015b6;
+  --color-primary-500: #03045e;
+
+  --shadow-primary: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --shadow-secondary: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  --shadow-terciary: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--color-primary-500);
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  width: 90%;
+  height: 90%;
+}
+
+::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-450); /* Color of the thumb */
+  border-radius: 5px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-500); /* Color of the thumb on hover */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--color-primary-500); /* Color of the thumb when pressed */
+}
+
+button:hover {
+  cursor: pointer;
 }

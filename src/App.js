@@ -23,6 +23,11 @@ const router = createBrowserRouter([
         path: "dragons",
         element: <h1>dragons</h1>,
       },
+      {
+        // Zejdi
+        path: "my-profile",
+        element: <h1>My Profile</h1>,
+      },
     ],
   },
 ]);

@@ -31,7 +31,7 @@ const ActionsButton = ({ data, type }) => {
     } else dispatch(joinMission(data.mission_id));
   };
   return (
-    <button type="button" onClick={clickHandler}>
+    <button type="button" className={classes.button} onClick={clickHandler}>
       {content}
     </button>
   );

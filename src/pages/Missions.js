@@ -22,14 +22,15 @@ const Missions = () => {
     }
   }, [dispatch, missions.length]);
 
-  const missionsList = missions.map((mission) => (
+  const missionsList = missions.map((mission, index) => (
     <li key={mission.mission_id} className={classes.listItem}>
       {mission.mission_reserved ? (
         <span className={classes.reserved}>Active member</span>
       ) : null}
-      <span>
+      <p className={classes.title}>
+        <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>
         <strong>{mission.mission_name}</strong>
-      </span>
+      </p>
       <span>{mission.description}</span>
       <ActionsButton data={mission} type="mission" />
     </li>
@@ -42,10 +43,9 @@ const Missions = () => {
   } else {
     content = (
       <div className={classes.mission}>
+        <span></span>
         <h1 className={classes.title}>Our Missions</h1>
-        <div className={classes.listHolder}>
-          <ul className={classes.list}>{missionsList}</ul>
-        </div>
+        <ul className={classes.listHolder}>{missionsList}</ul>
       </div>
     );
   }
