@@ -10,7 +10,7 @@ const initialState = {
 
 // async functions to fetch data
 export const fetchMissions = createAsyncThunk(
-  "mission/fetchMissions",
+  "missions/fetchMissions",
   async () => {
     const response = await axios.get(URL);
     // check out carefully the response, the response.data that is returnded, can be accessed as action.payload in extraReducers. Just be careful what are we returning as action payload.
@@ -20,7 +20,7 @@ export const fetchMissions = createAsyncThunk(
 );
 
 const missionSlice = createSlice({
-  name: "mission",
+  name: "missions",
   initialState,
   reducers: {
     joinMission: (state, action) => {
@@ -36,6 +36,14 @@ const missionSlice = createSlice({
         return;
       }
     },
+    leaveMission: (state, action) => {
+      const index = state.missions.findIndex(
+        (mission) => mission.mission_id === action.payload
+      );
+      if (index !== -1) {
+        state.missions[index].mission_reserved = false;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -49,15 +57,15 @@ const missionSlice = createSlice({
       })
       .addCase(fetchMissions.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.error.code + " " + action.error.message;
       });
   },
 });
 
 export const selectAllMissions = (state) => state.missions.missions;
-export const selectMissionsLoading = (state) => state.missions.status;
-export const selectMissionsError = (state) => state.missions.error;
+export const selectMissionStatus = (state) => state.missions.status;
+export const selectMissionError = (state) => state.missions.error;
 
-export const { joinMission } = missionSlice.actions;
+export const { joinMission, leaveMission } = missionSlice.actions;
 
 export default missionSlice.reducer;

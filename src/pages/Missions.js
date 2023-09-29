@@ -3,50 +3,53 @@ import classes from "./Missions.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchMissions,
-  joinMission,
   selectAllMissions,
-  selectMissionsError,
-  selectMissionsLoading,
+  selectMissionError,
+  selectMissionStatus,
 } from "../store/slices/missionSlice";
+import ActionsButton from "../components/ActionsButton";
 const Missions = () => {
   // dispatch to dispatch redux actions
   const dispatch = useDispatch();
 
   // selecting the state, mission, loading and error if there is one
   const missions = useSelector(selectAllMissions);
-  const missionsLoading = useSelector(selectMissionsLoading);
-  const missionsError = useSelector(selectMissionsError);
-
+  const missionsStatus = useSelector(selectMissionStatus);
+  const missionError = useSelector(selectMissionError);
   useEffect(() => {
     if (missions.length === 0) {
       dispatch(fetchMissions());
     }
-  }, []);
-
-  const clickHandler = (id) => {
-    dispatch(joinMission(id));
-  };
+  }, [dispatch, missions.length]);
 
   const missionsList = missions.map((mission) => (
-    <li
-      onClick={() => clickHandler(mission.mission_id)}
-      key={mission.mission_id}
-      className={classes.listItem}
-    >
+    <li key={mission.mission_id} className={classes.listItem}>
+      {mission.mission_reserved ? (
+        <span className={classes.reserved}>Active member</span>
+      ) : null}
       <span>
         <strong>{mission.mission_name}</strong>
       </span>
       <span>{mission.description}</span>
+      <ActionsButton data={mission} type="mission" />
     </li>
   ));
-  return (
-    <div className={classes.mission}>
-      <h1 className={classes.title}>Our Missions</h1>
-      <div className={classes.listHolder}>
-        <ul className={classes.list}>{missionsList}</ul>
+  let content;
+  if (missionsStatus === "loading") {
+    content = <p style={{ textAlign: "center" }}>Loading....</p>;
+  } else if (missionsStatus === "failed") {
+    content = <p style={{ textAlign: "center" }}>{missionError}</p>;
+  } else {
+    content = (
+      <div className={classes.mission}>
+        <h1 className={classes.title}>Our Missions</h1>
+        <div className={classes.listHolder}>
+          <ul className={classes.list}>{missionsList}</ul>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return content;
 };
 
 export default Missions;
