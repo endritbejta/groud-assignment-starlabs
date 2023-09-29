@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import classes from "./Dragons.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchDragons, selectAllDragons, selectDragonError, selectDragonStatus,
-  
+  fetchDragons,
+  selectAllDragons,
+  selectDragonError,
+  selectDragonStatus,
 } from "../store/slices/dragonsSlice";
 import ActionsButton from "../components/ActionsButton";
 const Dragons = () => {
@@ -23,7 +25,9 @@ const Dragons = () => {
   const dragonsList = dragons.map((dragon, index) => (
     <li key={dragon.id} className={classes.listItem}>
       {dragon.dragon_reserved ? (
-        <span className={classes.reserved}>Reserve</span>
+        <p className="reserved">
+          <span className="reserved-content">Reserved</span>
+        </p>
       ) : null}
       <p className={classes.title}>
         <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>

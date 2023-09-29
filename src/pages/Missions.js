@@ -25,7 +25,9 @@ const Missions = () => {
   const missionsList = missions.map((mission, index) => (
     <li key={mission.mission_id} className={classes.listItem}>
       {mission.mission_reserved ? (
-        <span className={classes.reserved}>Active member</span>
+        <p className="reserved">
+          <span className="reserved-content">Active Member</span>
+        </p>
       ) : null}
       <p className={classes.title}>
         <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>

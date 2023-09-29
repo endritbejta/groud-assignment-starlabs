@@ -7,8 +7,9 @@
   border: none;
   box-shadow: var(--shadow-secondary);
   color: inherit;
+  z-index: 1;
 }
 
 .button:hover {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
 }

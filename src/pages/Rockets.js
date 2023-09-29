@@ -26,14 +26,17 @@ const Rockets = () => {
   const rocketsList = rockets.map((rocket, index) => (
     <li
       style={{
-        background: `url(${rocket.flickr_images[0]})`,
+        background: `url(${rocket.flickr_images[0]}), rgba(0, 0, 0, 0.3)`,
         backgroundSize: "cover",
       }}
       key={rocket.id}
       className={classes.listItem}
     >
+      <span className={classes.gradient}></span>
       {rocket.rocket_reserved ? (
-        <span className={classes.reserved}>Reserved</span>
+        <p className="reserved">
+          <span className="reserved-content">Reserved</span>
+        </p>
       ) : null}
       <p className={classes.title}>
         <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>

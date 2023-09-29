@@ -57,3 +57,19 @@ body {
 button:hover {
   cursor: pointer;
 }
+
+.reserved {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  background-color: var(--color-primary-500);
+  color: white;
+  padding: 5px 10px;
+  z-index: 1;
+  transform: skew(-8deg, -3deg);
+}
+
+.reserved-content {
+  display: inline-block;
+  transform: skew(8deg, 3deg);
+}
