@@ -11,8 +11,8 @@ const router = createBrowserRouter([
     children: [
       {
         // Verona
-        path: "rockets",
-        element: <Rockets/>,
+        path: "",
+        element: <Rockets />,
       },
       {
         // endriti
