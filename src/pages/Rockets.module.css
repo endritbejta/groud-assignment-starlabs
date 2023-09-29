@@ -1,0 +1,41 @@
+.rockets {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .listHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 3px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100% - 35.6px);
+    padding-bottom: 5px;
+  }
+  
+  .listItem {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-terciary);
+    padding: 5px;
+    position: relative;
+  }
+  
+  .reserved {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: inherit;
+  }
+  
+  .title {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    padding: 3px;
+  }
+  

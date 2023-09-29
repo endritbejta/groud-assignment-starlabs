@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./ActionsButton.module.css";
 import { useDispatch } from "react-redux";
 import { joinMission, leaveMission } from "../store/slices/missionSlice";
+import { reserveRocket, cancelReservation } from "../store/slices/rocketsSlice";
 
 /**
  * @typedef {'mission' | 'rocket' | 'dragon'} ActionType
@@ -24,7 +25,8 @@ const ActionsButton = ({ data, type }) => {
     content =
       data.dragon_reserved === true ? "Cancel Reservation" : "Reserve dragon";
   } else if (type === "rocket") {
-    // content logic here
+    content =
+      data.rocket_reserved === true ? "Cancel Reservation" : "Reserve Rocket";
   }
   const dispatch = useDispatch();
   const clickHandler = () => {
@@ -32,10 +34,25 @@ const ActionsButton = ({ data, type }) => {
       dispatch(leaveMission(data.mission_id));
     } else dispatch(joinMission(data.mission_id));
   };
+  const clickHandlerRockets = () => {
+    if (data.rocket_reserved) {
+      dispatch(cancelReservation(data.id));
+    } else dispatch(reserveRocket(data.id));
+  };
+
   return (
-    <button type="button" className={classes.button} onClick={clickHandler}>
-      {content}
-    </button>
+    <div>
+      <button type="button" className={classes.button} onClick={clickHandler}>
+        {content}
+      </button>
+      <button
+        type="button"
+        className={classes.button}
+        onClick={clickHandlerRockets}
+      >
+        {content}
+      </button>
+    </div>
   );
 };
 

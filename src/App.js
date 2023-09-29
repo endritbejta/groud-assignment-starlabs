@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Layout from "./layout/Layout";
 import Missions from "./pages/Missions";
+import Rockets from "./pages/Rockets";
 
 const router = createBrowserRouter([
   {
@@ -10,8 +11,8 @@ const router = createBrowserRouter([
     children: [
       {
         // Verona
-        path: "",
-        element: <h1>Rockets</h1>,
+        path: "rockets",
+        element: <Rockets/>,
       },
       {
         // endriti
