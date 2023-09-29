@@ -3,6 +3,7 @@ import "./App.css";
 import Layout from "./layout/Layout";
 import Missions from "./pages/Missions";
 import Rockets from "./pages/Rockets";
+import Dragons from "./pages/Dragons";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       {
         // Zejdi
         path: "dragons",
-        element: <h1>dragons</h1>,
+        element: <Dragons />
       },
       {
         // Zejdi

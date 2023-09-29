@@ -3,6 +3,9 @@ import classes from "./ActionsButton.module.css";
 import { useDispatch } from "react-redux";
 import { joinMission, leaveMission } from "../store/slices/missionSlice";
 import { reserveRocket, cancelReservation } from "../store/slices/rocketsSlice";
+import { cancelDragon, reserveDragon } from "../store/slices/dragonsSlice";
+
+
 
 /**
  * @typedef {'mission' | 'rocket' | 'dragon'} ActionType
@@ -41,7 +44,10 @@ const ActionsButton = ({ data, type }) => {
       } else dispatch(reserveRocket(data.id));
     }
     if (type === "dragons") {
-      // code here
+      if (data.dragon_reserved) {
+        dispatch(cancelDragon(data.id));
+      } else dispatch(reserveDragon(data.id));
+      
     }
   };
 
