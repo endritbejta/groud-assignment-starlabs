@@ -21,8 +21,8 @@ const Dragons = () => {
   }, [dispatch, dragons.length]);
 
   const dragonsList = dragons.map((dragon, index) => (
-    <li key={dragon.dragons_id} className={classes.listItem}>
-      {dragon.dragons_reserved ? (
+    <li key={dragon.id} className={classes.listItem}>
+      {dragon.dragon_reserved ? (
         <span className={classes.reserved}>Reserve</span>
       ) : null}
       <p className={classes.title}>

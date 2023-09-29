@@ -26,7 +26,7 @@ const dragonSlice = createSlice({
     reserveDragon: (state, action) => {
       // finding the index of the clicked dragon
       const index = state.dragons.findIndex(
-        (dragon) => dragon.dragon === action.payload
+        (dragon) => dragon.id === action.payload
       );
       // if found then proceed
       if (index !== -1) {
@@ -38,7 +38,7 @@ const dragonSlice = createSlice({
     },
     cancelDragon: (state, action) => {
       const index = state.dragons.findIndex(
-        (mission) => mission.mission_id === action.payload
+        (dragon) => dragon.id === action.payload
       );
       if (index !== -1) {
         state.dragons[index].dragon_reserved = false;

@@ -43,7 +43,7 @@ const ActionsButton = ({ data, type }) => {
         dispatch(cancelReservation(data.id));
       } else dispatch(reserveRocket(data.id));
     }
-    if (type === "dragons") {
+    if (type === "dragon") {
       if (data.dragon_reserved) {
         dispatch(cancelDragon(data.id));
       } else dispatch(reserveDragon(data.id));
