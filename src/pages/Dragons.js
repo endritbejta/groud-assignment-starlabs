@@ -23,7 +23,14 @@ const Dragons = () => {
   }, [dispatch, dragons.length]);
 
   const dragonsList = dragons.map((dragon, index) => (
-    <li key={dragon.id} className={classes.listItem}>
+    <li
+      style={{
+        background: `url(${dragon.flickr_images[0]})`,
+        backgroundSize: "cover",
+      }}
+      key={dragon.id}
+      className={classes.listItem}
+    >
       {dragon.dragon_reserved ? (
         <p className="reserved">
           <span className="reserved-content">Reserved</span>
