@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import classes from "./Dragons.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchDragons, selectAllDragons, selectDragonError, selectDragonStatus,
-  
+  fetchDragons,
+  selectAllDragons,
+  selectDragonError,
+  selectDragonStatus,
 } from "../store/slices/dragonsSlice";
 import ActionsButton from "../components/ActionsButton";
 const Dragons = () => {
@@ -21,7 +23,14 @@ const Dragons = () => {
   }, [dispatch, dragons.length]);
 
   const dragonsList = dragons.map((dragon, index) => (
-    <li key={dragon.id} className={classes.listItem}>
+    <li
+      style={{
+        background: `url(${dragon.flickr_images[0]})`,
+        backgroundSize: "cover",
+      }}
+      key={dragon.id}
+      className={classes.listItem}
+    >
       {dragon.dragon_reserved ? (
         <span className={classes.reserved}>Reserve</span>
       ) : null}
