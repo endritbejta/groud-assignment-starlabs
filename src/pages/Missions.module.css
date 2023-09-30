@@ -13,3 +13,7 @@
   height: calc(100% - 35.6px);
   padding-bottom: 5px;
 }
+
+.mission h1 {
+  padding: 3px;
+}

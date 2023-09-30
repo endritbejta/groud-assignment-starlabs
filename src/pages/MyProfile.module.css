@@ -1,10 +1,10 @@
 .my-profile {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   height: 100%;
   overflow: hidden;
+  padding-bottom: 5px;
 }
 
 .title {
@@ -14,11 +14,14 @@
 .lists-container {
   display: grid;
   gap: 10px;
-  height: 100%;
-  grid-template-columns: 3fr 2fr 2fr;
+  height: calc(100% - 41px);
+  grid-template-columns: 1.3fr 1fr 1fr;
+  padding: 3px;
 }
 
-.reserved-missions {
+.reserved-missions,
+.reserved-dragons,
+.reserved-rockets {
   height: 100%;
   overflow: hidden;
   display: flex;
@@ -34,9 +37,11 @@
   padding: 3px;
 }
 
-.reserved-missions ul {
+.reserved-missions ul,
+.reserved-dragons ul,
+.reserved-rockets ul {
   padding: 3px;
-  height: 100%;
+  height: 94%;
   overflow-x: hidden;
   overflow-y: scroll;
   display: flex;
