@@ -41,9 +41,11 @@ const MyProfile = () => {
           <ul>{missionsContent}</ul>
         </div>
         <div className={classes["reserved-rockets"]}>
+          <h3>Reserved rockets</h3>
           <ul>{/* rockets content here */}</ul>
         </div>
         <div className={classes["reserved-dragons"]}>
+          <h3>Reserved dragons</h3>
           <ul>{/* rockets content here */}</ul>
         </div>
       </div>

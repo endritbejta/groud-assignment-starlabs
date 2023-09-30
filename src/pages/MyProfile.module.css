@@ -13,6 +13,7 @@
 
 .lists-container {
   display: grid;
+  gap: 10px;
   height: 100%;
   grid-template-columns: 3fr 2fr 2fr;
 }
@@ -23,9 +24,13 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 3px;
+  box-shadow: var(--shadow-primary);
 }
 
-.reserved-missions h3 {
+.reserved-missions h3,
+.reserved-rockets h3,
+.reserved-dragons h3 {
   padding: 3px;
 }
 
@@ -40,9 +45,11 @@
 }
 
 .reserved-rockets {
-  background-color: blue;
+  box-shadow: var(--shadow-primary);
+  padding: 3px;
 }
 
 .reserved-dragons {
-  background-color: green;
+  box-shadow: var(--shadow-primary);
+  padding: 3px;
 }
