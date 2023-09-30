@@ -28,6 +28,8 @@ const Rockets = () => {
       style={{
         background: `url(${rocket.flickr_images[0]}), rgba(0, 0, 0, 0.3)`,
         backgroundSize: "cover",
+        width: "100%",
+        height: "100%",
       }}
       key={rocket.id}
       className={classes.listItem}

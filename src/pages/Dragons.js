@@ -31,16 +31,16 @@ const Dragons = () => {
       key={dragon.id}
       className={classes.listItem}
     >
+      <span className={classes.gradient}></span>
       {dragon.dragon_reserved ? (
         <p className="reserved">
           <span className="reserved-content">Reserved</span>
         </p>
       ) : null}
-      <p className={classes.title}>
-        <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>
-        <strong>{dragon.dragons_name}</strong>
+      <p className={classes["dragon-title"]}>
+        <strong>{dragon.name}</strong>
       </p>
-      <span>{dragon.description}</span>
+      <p className={classes.description}>{dragon.description}</p>
       <ActionsButton data={dragon} type="dragon" />
     </li>
   ));
@@ -52,7 +52,6 @@ const Dragons = () => {
   } else {
     content = (
       <div className={classes.dragons}>
-        <span></span>
         <h1 className={classes.title}>Our dragons</h1>
         <ul className={classes.listHolder}>{dragonsList}</ul>
       </div>

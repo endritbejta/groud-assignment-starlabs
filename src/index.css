@@ -29,6 +29,7 @@ body {
   background-color: var(--color-primary);
   display: flex;
   align-items: center;
+  overflow: hidden;
   justify-content: center;
 }
 

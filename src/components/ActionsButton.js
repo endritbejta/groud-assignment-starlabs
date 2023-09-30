@@ -5,8 +5,6 @@ import { joinMission, leaveMission } from "../store/slices/missionSlice";
 import { reserveRocket, cancelReservation } from "../store/slices/rocketsSlice";
 import { cancelDragon, reserveDragon } from "../store/slices/dragonsSlice";
 
-
-
 /**
  * @typedef {'mission' | 'rocket' | 'dragon'} ActionType
  */
@@ -20,6 +18,7 @@ import { cancelDragon, reserveDragon } from "../store/slices/dragonsSlice";
 
 const ActionsButton = ({ data, type }) => {
   let content;
+  console.log("type: ", type);
   if (type === "mission") {
     // content logic here
     content = data.mission_reserved === true ? "Leave Mission" : "Join Mission";
@@ -47,7 +46,6 @@ const ActionsButton = ({ data, type }) => {
       if (data.dragon_reserved) {
         dispatch(cancelDragon(data.id));
       } else dispatch(reserveDragon(data.id));
-      
     }
   };
 

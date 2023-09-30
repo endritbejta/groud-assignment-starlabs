@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 10px;
   height: 100%;
+  overflow: hidden;
 }
 
 .title {
@@ -13,12 +14,19 @@
 .lists-container {
   display: grid;
   height: 100%;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 3fr 2fr 2fr;
 }
 
 .reserved-missions {
   height: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reserved-missions h3 {
+  padding: 3px;
 }
 
 .reserved-missions ul {
@@ -31,10 +39,8 @@
   gap: 10px;
 }
 
-.reserved-rockets,
-.reserved-dragons {
+.reserved-rockets {
   background-color: blue;
-  height: 100%;
 }
 
 .reserved-dragons {

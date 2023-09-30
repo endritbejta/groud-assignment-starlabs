@@ -3,21 +3,33 @@ import classes from "./MyProfile.module.css";
 import { useSelector } from "react-redux";
 import { selectAllMissions } from "../store/slices/missionSlice";
 import MissionItem from "../components/MissionItem";
+import { selectAllDragons } from "../store/slices/dragonsSlice";
+import { selectAllRockets } from "../store/slices/rocketsSlice";
+import RocketsAndDragonsItem from "../components/RocketsAndDragonsItem";
 const MyProfile = () => {
+  // selecting the state from store
   const missionsData = useSelector(selectAllMissions);
-  console.log("missions data: ", missionsData);
+
+  // new state for reserved content
   const [reservedMissions, setReservedMissions] = useState([]);
+
   useEffect(() => {
+    // finding the reserved data
     const reservedMissions = missionsData.filter(
       (mission) => mission.mission_reserved
     );
+
+    // updating the state
     setReservedMissions(reservedMissions);
+
     console.log(reservedMissions);
+    // add your content data to dependencies
   }, [missionsData]);
 
   const missionsContent = reservedMissions.map((mission, index) => (
     <MissionItem key={mission.mission_id} mission={mission} index={index} />
   ));
+
   return (
     <div className={classes["my-profile"]}>
       <h3 className={classes.title}>
@@ -25,10 +37,15 @@ const MyProfile = () => {
       </h3>
       <div className={classes["lists-container"]}>
         <div className={classes["reserved-missions"]}>
+          <h3>Active missions</h3>
           <ul>{missionsContent}</ul>
         </div>
-        <div className={classes["reserved-rockets"]}>2</div>
-        <div className={classes["reserved-dragons"]}>3</div>
+        <div className={classes["reserved-rockets"]}>
+          <ul>{/* rockets content here */}</ul>
+        </div>
+        <div className={classes["reserved-dragons"]}>
+          <ul>{/* rockets content here */}</ul>
+        </div>
       </div>
     </div>
   );

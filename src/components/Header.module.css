@@ -29,3 +29,17 @@
 .nav a[aria-current="page"] {
   border-bottom: 2px solid var(--color-primary);
 }
+
+@media (max-width: 800px) {
+  .title {
+    display: none;
+  }
+
+  .nav {
+    font-size: 18px;
+    gap: 5px;
+  }
+  .header {
+    justify-content: flex-end;
+  }
+}
