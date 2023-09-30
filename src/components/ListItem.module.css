@@ -50,8 +50,10 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  box-shadow: var(--shadow-terciary);
   padding: 5px;
+  box-shadow: var(--shadow-terciary);
+  padding-bottom: 10px;
+  padding-right: 10px;
   position: relative;
 }
 

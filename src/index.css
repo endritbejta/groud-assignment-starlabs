@@ -7,13 +7,13 @@
 }
 
 :root {
-  --color-primary: #e6f5f8;
-  --color-primary-100: #caf0f8;
-  --color-primary-200: #90e0ef;
-  --color-primary-300: #00b4d8;
-  --color-primary-400: #0077b6;
-  --color-primary-450: #0015b6;
-  --color-primary-500: #03045e;
+  --color-primary: #efe2f5;
+  --color-primary-100: #bd88e1;
+  --color-primary-200: #9140bd;
+  --color-primary-300: #8f1ba9;
+  --color-primary-400: #500c7e;
+  --color-primary-450: #3d0f65;
+  --color-primary-500: rgb(43, 4, 43);
 
   --shadow-primary: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --shadow-secondary: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
@@ -73,4 +73,9 @@ button:hover {
 .reserved-content {
   display: inline-block;
   transform: skew(8deg, 3deg);
+}
+
+.buttonActive {
+  border: 1px solid rgb(78, 117, 19);
+  color: rgb(78, 117, 19);
 }

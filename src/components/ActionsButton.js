@@ -20,17 +20,22 @@ const ActionsButton = ({ data, type }) => {
   let content;
   if (type === "mission") {
     // content logic here
-    content = data.mission_reserved === true ? "Leave Mission" : "Join Mission";
+    content =
+      data.mission_reserved === true ? "Leave Mission  ↘" : "Join Mission  ↗";
   } else if (type === "dragon") {
     // content logic here
     content =
-      data.dragon_reserved === true ? "Cancel Reservation" : "Reserve dragon";
+      data.dragon_reserved === true
+        ? "Cancel Reservation  ↘"
+        : "Reserve dragon  ↗";
   } else if (type === "rocket") {
     content =
-      data.rocket_reserved === true ? "Cancel Reservation" : "Reserve Rocket";
+      data.rocket_reserved === true
+        ? "Cancel Reservation  ↘"
+        : "Reserve Rocket  ↗";
   }
   const dispatch = useDispatch();
-  const clickHandler = () => {
+  const clickHandler = (e) => {
     if (type === "mission") {
       if (data.mission_reserved) {
         dispatch(leaveMission(data.mission_id));
@@ -47,10 +52,13 @@ const ActionsButton = ({ data, type }) => {
       } else dispatch(reserveDragon(data.id));
     }
   };
-
   return (
-    <button type="button" className={classes.button} onClick={clickHandler}>
-      {content}
+    <button
+      type="button"
+      className={classes.button}
+      onClick={(e) => clickHandler(e)}
+    >
+      <p className={classes.buttonText}>{content}</p>
     </button>
   );
 };
