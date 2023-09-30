@@ -1,0 +1,16 @@
+.missionItem {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: var(--shadow-terciary);
+  padding: 5px;
+  position: relative;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  padding: 3px;
+}

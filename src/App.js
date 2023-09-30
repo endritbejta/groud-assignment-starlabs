@@ -4,6 +4,7 @@ import Layout from "./layout/Layout";
 import Missions from "./pages/Missions";
 import Rockets from "./pages/Rockets";
 import Dragons from "./pages/Dragons";
+import MyProfile from "./pages/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -23,12 +24,11 @@ const router = createBrowserRouter([
       {
         // Zejdi
         path: "dragons",
-        element: <Dragons />
+        element: <Dragons />,
       },
       {
-        // Zejdi
         path: "my-profile",
-        element: <h1>My Profile</h1>,
+        element: <MyProfile />,
       },
     ],
   },

@@ -7,7 +7,7 @@ import {
   selectMissionError,
   selectMissionStatus,
 } from "../store/slices/missionSlice";
-import ActionsButton from "../components/ActionsButton";
+import MissionItem from "../components/MissionItem";
 const Missions = () => {
   // dispatch to dispatch redux actions
   const dispatch = useDispatch();
@@ -23,19 +23,7 @@ const Missions = () => {
   }, [dispatch, missions.length]);
 
   const missionsList = missions.map((mission, index) => (
-    <li key={mission.mission_id} className={classes.listItem}>
-      {mission.mission_reserved ? (
-        <p className="reserved">
-          <span className="reserved-content">Active Member</span>
-        </p>
-      ) : null}
-      <p className={classes.title}>
-        <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>
-        <strong>{mission.mission_name}</strong>
-      </p>
-      <span>{mission.description}</span>
-      <ActionsButton data={mission} type="mission" />
-    </li>
+    <MissionItem key={mission.mission_id} mission={mission} index={index} />
   ));
   let content;
   if (missionsStatus === "loading") {

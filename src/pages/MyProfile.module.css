@@ -1,0 +1,42 @@
+.my-profile {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.title {
+  font-size: 22px;
+}
+
+.lists-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.reserved-missions {
+  height: 100%;
+  overflow: hidden;
+}
+
+.reserved-missions ul {
+  padding: 3px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reserved-rockets,
+.reserved-dragons {
+  background-color: blue;
+  height: 100%;
+}
+
+.reserved-dragons {
+  background-color: green;
+}

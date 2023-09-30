@@ -60,7 +60,7 @@ button:hover {
 
 .reserved {
   position: absolute;
-  top: 5%;
+  top: 2%;
   right: 2%;
   background-color: var(--color-primary-500);
   color: white;
