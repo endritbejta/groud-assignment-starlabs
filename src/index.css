@@ -7,7 +7,7 @@
 }
 
 :root {
-  --color-primary: #efe2f5;
+  --color-primary: #f8f1fa;
   --color-primary-100: #bd88e1;
   --color-primary-200: #9140bd;
   --color-primary-300: #8f1ba9;
@@ -26,7 +26,8 @@ body {
   color: var(--color-primary-500);
   height: 100vh;
   width: 100vw;
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
+  background-color: whitesmoke;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -73,9 +74,4 @@ button:hover {
 .reserved-content {
   display: inline-block;
   transform: skew(8deg, 3deg);
-}
-
-.buttonActive {
-  border: 1px solid rgb(78, 117, 19);
-  color: rgb(78, 117, 19);
 }
