@@ -7,7 +7,7 @@ import {
   selectRocketsStatus,
 } from "../store/slices/rocketsSlice";
 import classes from "./Rockets.module.css";
-import ActionsButton from "../components/ActionsButton";
+import ListItem from "../components/ListItem";
 
 const Rockets = () => {
   // dispatch to dispatch redux actions
@@ -24,29 +24,7 @@ const Rockets = () => {
   }, [dispatch, rockets.length]);
 
   const rocketsList = rockets.map((rocket, index) => (
-    <li
-      style={{
-        background: `url(${rocket.flickr_images[0]}), rgba(0, 0, 0, 0.3)`,
-        backgroundSize: "cover",
-        width: "100%",
-        height: "100%",
-      }}
-      key={rocket.id}
-      className={classes.listItem}
-    >
-      <span className={classes.gradient}></span>
-      {rocket.rocket_reserved ? (
-        <p className="reserved">
-          <span className="reserved-content">Reserved</span>
-        </p>
-      ) : null}
-      <p className={classes.title}>
-        <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>
-        <strong>{rocket.rocket_name}</strong>
-      </p>
-      <span className={classes.description}>{rocket.description}</span>
-      <ActionsButton data={rocket} type="rocket" />
-    </li>
+    <ListItem data={rocket} key={rocket.id} index={index} type="rocket" />
   ));
   let content;
   if (rocketsStatus === "loading") {
