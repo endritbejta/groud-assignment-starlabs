@@ -1,9 +1,26 @@
 import React from "react";
-import classes from "./RocketsAndDragonsItem.module.css";
+import classes from "./ListItem.module.css";
 import ActionsButton from "./ActionsButton";
 
-const RocketsAndDragonsItem = ({ data, index, type }) => {
+const ListItem = ({ data, index, type }) => {
   let content;
+  if (type === "mission") {
+    content = (
+      <li className={classes.missionItem}>
+        {data.mission_reserved ? (
+          <p className="reserved">
+            <span className="reserved-content">Active Member</span>
+          </p>
+        ) : null}
+        <p className={classes.title}>
+          <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>
+          <strong>{data.mission_name}</strong>
+        </p>
+        <span>{data.description}</span>
+        <ActionsButton data={data} type="mission" />
+      </li>
+    );
+  }
   if (type === "rocket") {
     content = (
       <li
@@ -61,4 +78,4 @@ const RocketsAndDragonsItem = ({ data, index, type }) => {
   return content;
 };
 
-export default RocketsAndDragonsItem;
+export default ListItem;

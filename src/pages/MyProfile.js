@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import classes from "./MyProfile.module.css";
 import { useSelector } from "react-redux";
 import { selectAllMissions } from "../store/slices/missionSlice";
-import MissionItem from "../components/MissionItem";
-import { selectAllDragons } from "../store/slices/dragonsSlice";
-import { selectAllRockets } from "../store/slices/rocketsSlice";
-import RocketsAndDragonsItem from "../components/RocketsAndDragonsItem";
+import ListItem from "../components/ListItem";
+
 const MyProfile = () => {
   // selecting the state from store
   const missionsData = useSelector(selectAllMissions);
@@ -22,12 +20,16 @@ const MyProfile = () => {
     // updating the state
     setReservedMissions(reservedMissions);
 
-    console.log(reservedMissions);
     // add your content data to dependencies
   }, [missionsData]);
 
   const missionsContent = reservedMissions.map((mission, index) => (
-    <MissionItem key={mission.mission_id} mission={mission} index={index} />
+    <ListItem
+      data={mission}
+      key={mission.mission_id}
+      index={index}
+      type="mission"
+    />
   ));
 
   return (

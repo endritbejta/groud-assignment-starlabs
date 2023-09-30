@@ -7,7 +7,7 @@ import {
   selectMissionError,
   selectMissionStatus,
 } from "../store/slices/missionSlice";
-import MissionItem from "../components/MissionItem";
+import ListItem from "../components/ListItem";
 const Missions = () => {
   // dispatch to dispatch redux actions
   const dispatch = useDispatch();
@@ -23,7 +23,12 @@ const Missions = () => {
   }, [dispatch, missions.length]);
 
   const missionsList = missions.map((mission, index) => (
-    <MissionItem key={mission.mission_id} mission={mission} index={index} />
+    <ListItem
+      data={mission}
+      key={mission.mission_id}
+      index={index}
+      type="mission"
+    />
   ));
   let content;
   if (missionsStatus === "loading") {

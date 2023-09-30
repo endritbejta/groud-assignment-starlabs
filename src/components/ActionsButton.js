@@ -18,7 +18,6 @@ import { cancelDragon, reserveDragon } from "../store/slices/dragonsSlice";
 
 const ActionsButton = ({ data, type }) => {
   let content;
-  console.log("type: ", type);
   if (type === "mission") {
     // content logic here
     content = data.mission_reserved === true ? "Leave Mission" : "Join Mission";

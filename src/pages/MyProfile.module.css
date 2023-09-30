@@ -15,8 +15,9 @@
   display: grid;
   gap: 10px;
   height: calc(100% - 41px);
-  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 3px;
+  padding-right: 6px;
 }
 
 .reserved-missions,

@@ -14,7 +14,6 @@ export const fetchRockets = createAsyncThunk(
   async () => {
     const response = await axios.get(URL);
     // check out carefully the response, the response.data that is returnded, can be accessed as action.payload in extraReducers. Just be careful what are we returning as action payload.
-    console.log(response);
     return response.data;
   }
 );
