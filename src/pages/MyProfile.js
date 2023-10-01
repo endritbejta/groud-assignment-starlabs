@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,  } from "react";
 import classes from "./MyProfile.module.css";
 import { useSelector } from "react-redux";
 import { selectAllMissions } from "../store/slices/missionSlice";
 import ListItem from "../components/ListItem";
 import { selectAllRockets } from "../store/slices/rocketsSlice";
+import { selectAllDragons } from "../store/slices/dragonsSlice";
 
 const MyProfile = () => {
   // selecting the state from store
   const missionsData = useSelector(selectAllMissions);
   const rocketsData = useSelector(selectAllRockets);
+  const dragonsData = useSelector(selectAllDragons);
 
   // new state for reserved content
   const [reservedMissions, setReservedMissions] = useState([]);
   const [reservedRockets, setReserveRockets] = useState([]);
+  const [reserveDragons, setReservedDragons] = useState([]);
 
   useEffect(() => {
     // finding the reserved data
@@ -22,12 +25,16 @@ const MyProfile = () => {
     const reservedRockets = rocketsData.filter(
       (rocket) => rocket.rocket_reserved
     );
+    const reservedDragons = dragonsData.filter(
+      (dragon) => dragon.dragon_reserved
+    );
     // updating the state
     setReservedMissions(reservedMissions);
     setReserveRockets(reservedRockets);
+    setReservedDragons(reservedDragons);
 
     // add your content data to dependencies
-  }, [missionsData, rocketsData]);
+  }, [missionsData, rocketsData, dragonsData,]);
 
   const missionsContent = reservedMissions.map((mission, index) => (
     <ListItem
@@ -41,6 +48,13 @@ const MyProfile = () => {
   const rocketsContent = reservedRockets.map((rocket, index) => (
     <ListItem data={rocket} key={rocket.id} index={index} type="rocket" />
   ));
+
+  const dragonsContent = reserveDragons.map((dragon, index) => (
+    <ListItem data={dragon} key={dragon.id} index={index} type="dragon" />
+  ) )
+
+
+
   return (
     <div className={classes["my-profile"]}>
       <h3 className={classes.title}>
@@ -57,7 +71,8 @@ const MyProfile = () => {
         </div>
         <div className={classes["reserved-dragons"]}>
           <h3>Reserved dragons</h3>
-          <ul>{/* rockets content here */}</ul>
+          <ul>{dragonsContent}</ul>
+          
         </div>
       </div>
     </div>
