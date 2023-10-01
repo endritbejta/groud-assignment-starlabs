@@ -21,8 +21,10 @@ const Dragons = () => {
       dispatch(fetchDragons());
     }
   }, [dispatch, dragons.length]);
+  
 
   const dragonsList = dragons.map((dragon, index) => (
+    
     <li
       style={{
         background: `url(${dragon.flickr_images[0]})`,
