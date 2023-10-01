@@ -59,3 +59,23 @@
   box-shadow: var(--shadow-primary);
   padding: 3px;
 }
+
+@media (max-width: 975px) {
+  .lists-container {
+    display: inline-block;
+    margin-bottom: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .my-profile {
+    overflow-y: scroll;
+  }
+
+  .reserved-missions,
+  .reserved-dragons,
+  .reserved-rockets {
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
