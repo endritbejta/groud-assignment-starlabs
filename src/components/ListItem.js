@@ -65,9 +65,9 @@ const ListItem = ({ data, index, type }) => {
             <span className="reserved-content">Reserved</span>
           </p>
         ) : null}
-        <p className={classes.title}>
+        <p className={classes["dragon-title"]}>
           <strong style={{ fontSize: "28px" }}>{`#${index + 1} `}</strong>
-          <strong>{data.dragons_name}</strong>
+          <strong>{data.name}</strong>
         </p>
         <p className={classes.description}>{data.description}</p>
         <ActionsButton data={data} type="dragon" />

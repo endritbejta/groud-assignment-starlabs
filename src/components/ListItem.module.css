@@ -87,6 +87,15 @@
   );
 }
 
+.dragon-title {
+  color: white;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
 .missionItem {
   display: flex;
   flex-direction: column;
