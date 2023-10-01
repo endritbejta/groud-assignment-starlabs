@@ -6,7 +6,6 @@
 .listHolder {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   padding: 3px;
@@ -66,9 +65,23 @@
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.2),
-    rgba(0, 0, 0, 0.1) 10%,
+    rgba(0, 0, 0, 0.2) 10%,
+    rgba(0, 0, 0, 0.3) 20%,
     rgba(0, 0, 0, 0.3) 40%,
-    rgba(0, 0, 0, 0.4) 70%,
-    rgba(0, 0, 0, 0.7) 100%
+    rgba(0, 0, 0, 0.3) 70%,
+    rgba(0, 0, 0, 0.1) 80%,
+    rgba(255, 255, 255, 0.2) 90%,
+    rgba(255, 255, 255, 0.1) 100%
   );
+}
+
+@media (max-width: 740px) {
+  .listHolder {
+    flex-direction: column;
+  }
+
+  .listItem {
+    width: 95%;
+    margin-inline: auto;
+  }
 }

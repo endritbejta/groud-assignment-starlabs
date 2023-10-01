@@ -33,7 +33,7 @@ const ListItem = ({ data, index, type }) => {
         key={data.id}
         className={classes.listItem}
       >
-        <span className={classes.gradient}></span>
+        <span className={classes["rocket-gradient"]}></span>
         {data.rocket_reserved ? (
           <p className="reserved">
             <span className="reserved-content">Reserved</span>
@@ -59,7 +59,7 @@ const ListItem = ({ data, index, type }) => {
         key={data.id}
         className={classes.listItem}
       >
-        <span className={classes.gradient}></span>
+        <span className={classes["dragon-gradient"]}></span>
         {data.dragon_reserved ? (
           <p className="reserved">
             <span className="reserved-content">Reserved</span>
