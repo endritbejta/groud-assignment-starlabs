@@ -1,0 +1,19 @@
+.mission {
+  height: 100%;
+  width: 100%;
+}
+
+.listHolder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 3px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: calc(100% - 35.6px);
+  padding-bottom: 10px;
+}
+
+.mission h1 {
+  padding: 3px;
+}

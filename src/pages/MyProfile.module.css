@@ -1,0 +1,81 @@
+.my-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+
+.title {
+  font-size: 22px;
+}
+
+.lists-container {
+  display: grid;
+  gap: 10px;
+  height: calc(100% - 41px);
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 3px;
+  padding-right: 6px;
+}
+
+.reserved-missions,
+.reserved-dragons,
+.reserved-rockets {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 3px;
+  box-shadow: var(--shadow-primary);
+}
+
+.reserved-missions h3,
+.reserved-rockets h3,
+.reserved-dragons h3 {
+  padding: 3px;
+}
+
+.reserved-missions ul,
+.reserved-dragons ul,
+.reserved-rockets ul {
+  padding: 3px;
+  height: 94%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reserved-rockets {
+  box-shadow: var(--shadow-primary);
+  padding: 3px;
+}
+
+.reserved-dragons {
+  box-shadow: var(--shadow-primary);
+  padding: 3px;
+}
+
+@media (max-width: 975px) {
+  .lists-container {
+    display: inline-block;
+    margin-bottom: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .my-profile {
+    overflow-y: scroll;
+  }
+
+  .reserved-missions,
+  .reserved-dragons,
+  .reserved-rockets {
+    height: auto;
+    margin-bottom: 20px;
+  }
+}

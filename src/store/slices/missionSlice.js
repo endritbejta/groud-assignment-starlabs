@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-const URL = "";
+const URL = "https://api.spacexdata.com/v3/missions";
 
 const initialState = {
   missions: [],
@@ -10,19 +10,40 @@ const initialState = {
 
 // async functions to fetch data
 export const fetchMissions = createAsyncThunk(
-  "mission/fetchMissions",
+  "missions/fetchMissions",
   async () => {
     const response = await axios.get(URL);
     // check out carefully the response, the response.data that is returnded, can be accessed as action.payload in extraReducers. Just be careful what are we returning as action payload.
-    console.log(response);
     return response.data;
   }
 );
 
 const missionSlice = createSlice({
-  name: "mission",
+  name: "missions",
   initialState,
-  reducers: {},
+  reducers: {
+    joinMission: (state, action) => {
+      // finding the index of the clicked mission
+      const index = state.missions.findIndex(
+        (mission) => mission.mission_id === action.payload
+      );
+      // if found then proceed
+      if (index !== -1) {
+        // update the mission_reserved property, (we can don this type of mutating state, because in this version of redux, redux uses immer.js who helps us make the state change immutably even though we directy manipulate it )
+        state.missions[index].mission_reserved = true;
+      } else {
+        return;
+      }
+    },
+    leaveMission: (state, action) => {
+      const index = state.missions.findIndex(
+        (mission) => mission.mission_id === action.payload
+      );
+      if (index !== -1) {
+        state.missions[index].mission_reserved = false;
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMissions.pending, (state, action) => {
@@ -35,13 +56,15 @@ const missionSlice = createSlice({
       })
       .addCase(fetchMissions.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload;
+        state.error = action.error.code + " " + action.error.message;
       });
   },
 });
 
 export const selectAllMissions = (state) => state.missions.missions;
-export const selectStats = (state) => state.missions.status;
-export const selectError = (state) => state.missions.error;
+export const selectMissionStatus = (state) => state.missions.status;
+export const selectMissionError = (state) => state.missions.error;
+
+export const { joinMission, leaveMission } = missionSlice.actions;
 
 export default missionSlice.reducer;

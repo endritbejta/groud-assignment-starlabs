@@ -1,0 +1,116 @@
+.listItem {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  box-shadow: var(--shadow-terciary);
+  padding: 5px;
+  position: relative;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  padding: 3px;
+  font-size: 20px;
+  z-index: 1;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: var(--color-primary-500);
+}
+
+.description {
+  color: white;
+  z-index: 1;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 0;
+  width: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.1) 10%,
+    rgba(0, 0, 0, 0.3) 40%,
+    rgba(0, 0, 0, 0.4) 70%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.rocket-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 0;
+  width: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.1) 10%,
+    rgba(0, 0, 0, 0.2) 20%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.2) 80%,
+    rgba(0, 0, 0, 0.1) 90%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+}
+
+.dragon-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 0;
+  width: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.2) 10%,
+    rgba(0, 0, 0, 0.3) 20%,
+    rgba(0, 0, 0, 0.3) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    rgba(0, 0, 0, 0.1) 80%,
+    rgba(255, 255, 255, 0.2) 90%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+.dragon-title {
+  color: white;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.missionItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow-terciary);
+  padding: 5px;
+  position: relative;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  padding: 3px;
+  max-width: 70%;
+}

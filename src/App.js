@@ -1,6 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Layout from "./layout/Layout";
+import Missions from "./pages/Missions";
+import Rockets from "./pages/Rockets";
+import Dragons from "./pages/Dragons";
+import MyProfile from "./pages/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -10,17 +14,21 @@ const router = createBrowserRouter([
       {
         // Verona
         path: "",
-        element: <h1>Rockets</h1>,
+        element: <Rockets />,
       },
       {
         // endriti
         path: "missions",
-        element: <h1>missions</h1>,
+        element: <Missions />,
       },
       {
         // Zejdi
         path: "dragons",
-        element: <h1>dragons</h1>,
+        element: <Dragons />,
+      },
+      {
+        path: "my-profile",
+        element: <MyProfile />,
       },
     ],
   },
